@@ -10,6 +10,8 @@ import { ContactPreviewComponent } from './components/ContactPreview/contact-pre
 import { AppHeaderComponent } from './components/AppHeader/app-header.component';
 import { AppFooterComponent } from './components/AppFooter/app-footer.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { RouterModule } from '@angular/router';
       { path: '', component: HomePageComponent },
       { path: 'contact', component: ContactPageComponent },
     ]),
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,13 @@
+@import "../../../assets/styles/setup/variables";
+.contact-list {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25em;
+  margin-top: 1rem;
+  .contact-container {
+    background: $bg-clr2;
+    padding: 2rem;
+    border-radius: .5rem;
+  }
+}

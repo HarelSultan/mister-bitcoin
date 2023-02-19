@@ -1,10 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Contact } from 'src/app/models/contact.model';
+import { ContactService } from 'src/app/services/contact/contact.service';
 
 @Component({
   selector: 'contact-page',
   templateUrl: './contact-page.component.html',
-  styleUrls: ['./contact-page.component.scss']
+  styleUrls: ['./contact-page.component.scss'],
 })
-export class ContactPageComponent {
+export class ContactPageComponent implements OnInit {
+  constructor(private contactService: ContactService) {}
 
+  contacts!: Contact[];
+  contacts$!: Observable<Contact[]>;
+
+  ngOnInit(): void {
+    this.contactService.loadContacts({ term: '' });
+    this.contacts$ = this.contactService.contacts$;
+  }
 }
