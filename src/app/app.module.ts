@@ -2,17 +2,33 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent } from './app-root/app.component';
+import { ContactPageComponent } from './pages/ContactPage/contact-page.component';
+import { HomePageComponent } from './pages/HomePage/home-page.component';
+import { ContactListComponent } from './components/ContactList/contact-list.component';
+import { ContactPreviewComponent } from './components/ContactPreview/contact-preview.component';
+import { AppHeaderComponent } from './components/AppHeader/app-header.component';
+import { AppFooterComponent } from './components/AppFooter/app-footer.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppHeaderComponent,
+    AppFooterComponent,
+    HomePageComponent,
+    ContactPageComponent,
+    ContactListComponent,
+    ContactPreviewComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    RouterModule.forRoot([
+      { path: '', component: HomePageComponent },
+      { path: 'contact', component: ContactPageComponent },
+    ]),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

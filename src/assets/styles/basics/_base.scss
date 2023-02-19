@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Titillium Web", sans-serif;
+  color: $text-clr1;
+  line-height: 1.8;
+}
+
+body {
+  margin: 0;
+  background-color: $bg-clr1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+}
+
+p {
+  font-size: rem(18px);
+  margin: 0;
+  font-weight: 600;
+}
+
+button,
+.btn {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  padding: rem(8.5px) rem(32.75px) rem(10.5px);
+  color: $text-clr1;
+  border: none;
+  font-family: "Livvic", sans-serif;
+  text-align: center;
+  background-color: $brand-clr;
+  border-radius: 4px;
+  height: 100%;
+  width: -webkit-max-content;
+}
+
+// links
+a {
+  color: $text-clr1;
+  text-decoration: none;
+}

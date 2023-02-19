@@ -1,0 +1,47 @@
+@import "../../../assets/styles/setup/variables";
+.app-header {
+  background: $bg-clr2;
+  color: $text-clr1;
+  font-family: "Titillium Web", sans-serif;
+
+  .layout-wrapper {
+    display: flex;
+    .logo {
+      display: flex;
+      align-items: center;
+      img {
+        height: 27px;
+        margin-inline-end: 0.1rem;
+      }
+      span {
+        font-size: 2rem;
+        font-style: italic;
+      }
+    }
+    .links {
+      display: flex;
+      margin-left: auto;
+      align-items: center;
+      li {
+        height: 100%;
+        a {
+          display: inline-flex;
+          align-items: center;
+          height: 100%;
+          padding: 1rem;
+          color: $text-clr1;
+          box-shadow: -1px 0 0 0 black;
+          border-bottom: $brand-clr 3px solid;
+
+          &.active {
+            color: $brand-clr;
+            border-bottom: $brand-clr-bold 3px solid;
+          }
+        }
+      }
+      & li:last-child {
+        box-shadow: 1px 0 0 0 black;
+      }
+    }
+  }
+}
