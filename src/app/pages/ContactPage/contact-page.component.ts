@@ -11,11 +11,10 @@ import { ContactService } from 'src/app/services/contact/contact.service';
 export class ContactPageComponent implements OnInit {
   constructor(private contactService: ContactService) {}
 
-  contacts!: Contact[];
   contacts$!: Observable<Contact[]>;
 
   ngOnInit(): void {
-    this.contactService.loadContacts({ term: '' });
+    this.contactService.loadContacts();
     this.contacts$ = this.contactService.contacts$;
   }
 }

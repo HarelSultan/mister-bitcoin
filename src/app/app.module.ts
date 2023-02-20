@@ -9,9 +9,13 @@ import { ContactListComponent } from './components/ContactList/contact-list.comp
 import { ContactPreviewComponent } from './components/ContactPreview/contact-preview.component';
 import { AppHeaderComponent } from './components/AppHeader/app-header.component';
 import { AppFooterComponent } from './components/AppFooter/app-footer.component';
-import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ContactDetailsPageComponent } from './pages/ContactDetailsPage/contact-details-page.component';
+import { StatisticPageComponent } from './pages/StatisticPage/statistic-page.component';
+import { GoogleChartsModule } from 'angular-google-charts';
+import { ContactFilterComponent } from './components/ContactFilter/contact-filter.component';
+import { ContactEditPageComponent } from './pages/ContactEditPage/contact-edit-page.component';
 
 @NgModule({
   declarations: [
@@ -22,15 +26,17 @@ import { HttpClientModule } from '@angular/common/http';
     ContactPageComponent,
     ContactListComponent,
     ContactPreviewComponent,
+    ContactDetailsPageComponent,
+    StatisticPageComponent,
+    ContactFilterComponent,
+    ContactEditPageComponent,
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([
-      { path: '', component: HomePageComponent },
-      { path: 'contact', component: ContactPageComponent },
-    ]),
+    AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    GoogleChartsModule.forRoot({}),
   ],
   providers: [],
   bootstrap: [AppComponent],

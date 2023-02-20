@@ -7,8 +7,14 @@
 
     <ul class="links clean-list">
       <li class="link">
-        <a routerLink="">Home</a>
-        <a routerLink="contact">Contacts</a>
+        <a
+          routerLink=""
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Home</a
+        >
+        <a routerLink="contact" routerLinkActive="active">Contacts</a>
+        <a routerLink="statistic" routerLinkActive="active">Statistics</a>
       </li>
     </ul>
   </div>

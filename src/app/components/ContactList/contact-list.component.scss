@@ -8,6 +8,14 @@
   .contact-container {
     background: $bg-clr2;
     padding: 2rem;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
+  }
+  .contact-actions-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .btn-details,
+  .btn-edit {
+    height: unset;
   }
 }

@@ -1,5 +1,21 @@
 <section class="contact-list">
   <article *ngFor="let contact of contacts" class="contact-container">
     <contact-preview [contact]="contact"></contact-preview>
+    <div class="contact-actions-container">
+      <button
+        [routerLink]="['/contact', contact._id]"
+        *ngIf="contact._id"
+        class="btn btn-details"
+      >
+        Details
+      </button>
+      <button
+        [routerLink]="['/contact/edit', contact._id]"
+        *ngIf="contact._id"
+        class="btn btn-edit"
+      >
+        Edit
+      </button>
+    </div>
   </article>
 </section>

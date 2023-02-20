@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, of, throwError } from 'rxjs';
-import { Contact } from '../../models/contact.model';
+import { Contact, ContactFilter } from '../../models/contact.model';
 
 const CONTACTS = [
   {
@@ -130,10 +130,25 @@ export class ContactService {
   private _contacts$ = new BehaviorSubject<Contact[]>([]);
   public contacts$ = this._contacts$.asObservable();
 
+  private _contactFilter$ = new BehaviorSubject<ContactFilter>({
+    name: '',
+    phone: '',
+    email: '',
+  });
+  public contactFilter$ = this._contactFilter$.asObservable();
+
   constructor() {}
 
-  public loadContacts(filterBy: { term: string }): void {
-    let contacts = this._contactsDb;
+  public loadContacts(): void {
+    const filterBy = this._contactFilter$.value;
+    const contacts = this._contactsDb.filter(({ name, phone, email }) => {
+      return (
+        name.toLowerCase().includes(filterBy.name.toLowerCase()) &&
+        phone.includes(filterBy.phone) &&
+        email.toLowerCase().includes(filterBy.email.toLowerCase())
+      );
+    });
+    // let contacts = this._contactsDb;
     // if (filterBy && filterBy.term) {
     //     contacts = this._filter(contacts, filterBy.term)
     // }
@@ -150,6 +165,15 @@ export class ContactService {
       : throwError(() => `Contact id ${id} not found!`);
   }
 
+  public getEmptyContact() {
+    return {
+      _id: '',
+      name: '',
+      phone: '',
+      email: '',
+    };
+  }
+
   public deleteContact(id: string) {
     //mock the server work
     this._contactsDb = this._contactsDb.filter((contact) => contact._id !== id);
@@ -164,6 +188,11 @@ export class ContactService {
       : this._addContact(contact);
   }
 
+  public setFilter(contactFilter: ContactFilter) {
+    this._contactFilter$.next(contactFilter);
+    this.loadContacts();
+  }
+
   private _updateContact(contact: Contact) {
     //mock the server work
     this._contactsDb = this._contactsDb.map((c) =>
@@ -171,6 +200,7 @@ export class ContactService {
     );
     // change the observable data in the service - let all the subscribers know
     this._contacts$.next(this._sort(this._contactsDb));
+    return of(contact);
   }
 
   private _addContact(contact: Contact) {
@@ -179,6 +209,7 @@ export class ContactService {
     if (typeof newContact.setId === 'function') newContact.setId(getRandomId());
     this._contactsDb.push(newContact);
     this._contacts$.next(this._sort(this._contactsDb));
+    return of(contact);
   }
 
   private _sort(contacts: Contact[]): Contact[] {

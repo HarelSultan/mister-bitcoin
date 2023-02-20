@@ -1,3 +1,5 @@
 <section class="contact-page">
+  <button routerLink="/contact/edit" class="btn btn-add">Add Contact</button>
+  <contact-filter></contact-filter>
   <contact-list [contacts]="contacts$ | async"></contact-list>
 </section>

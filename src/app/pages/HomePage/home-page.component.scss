@@ -1,0 +1,14 @@
+.home-page {
+  display: grid;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+
+  .user-balance,
+  .rate {
+    display: flex;
+    img {
+      width: 30px;
+    }
+  }
+}

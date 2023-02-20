@@ -1,1 +1,11 @@
-<p>home-page works!</p>
+<section *ngIf="user" class="home-page">
+  <span>Welcome back {{ user.name }}</span>
+  <div class="user-balance">
+    <img src="../../../assets/img/coins.png" alt="" />
+    <span>Balance: {{ user.coins }}</span>
+  </div>
+  <div class="rate">
+    <img src="../../../assets/img/bitcoin.png" alt="" />
+    <span>BTC: {{ rate }}</span>
+  </div>
+</section>
