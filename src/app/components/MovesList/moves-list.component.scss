@@ -1,0 +1,35 @@
+@import "../../../assets/styles/setup/variables";
+.moves-list {
+  .move-preview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid rgb(225, 228, 235);
+  }
+  .transaction-date {
+    // color: darken($text-clr2, 5%);
+    color: $text-clr2;
+  }
+  .curr-balance {
+    text-align: end;
+    color: $sucess-clr;
+  }
+  .transaction-to {
+    font-size: 1.35rem;
+    line-height: 1.15;
+    grid-area: 2/1/3/3;
+  }
+
+  .transaction-amount {
+    color: $brand-clr;
+  }
+  .transaction-status {
+    text-align: end;
+    .approved {
+      color: $sucess-clr;
+    }
+
+    .declined {
+      color: $danger-clr;
+    }
+  }
+}

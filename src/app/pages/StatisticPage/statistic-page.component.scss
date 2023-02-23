@@ -1,6 +1,30 @@
+@import "../../../assets/styles/setup/variables";
+
 .statistic-page {
-  * > {
-    height: 500px;
-    width: 500px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+
+  .user-balance {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    div {
+      padding: 0.5rem 3rem;
+      border: 1px solid $text-clr1;
+      display: grid;
+      color: $text-clr2;
+      font-size: 1.5rem;
+      border-radius: 1rem;
+      &.btc-balance {
+        color: $brand-clr;
+      }
+      &.usd-balance {
+        color: $sucess-clr;
+      }
+      span {
+        font-size: 2rem;
+        color: $text-clr1;
+      }
+    }
   }
 }

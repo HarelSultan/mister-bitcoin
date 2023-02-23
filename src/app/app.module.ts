@@ -9,13 +9,17 @@ import { ContactListComponent } from './components/ContactList/contact-list.comp
 import { ContactPreviewComponent } from './components/ContactPreview/contact-preview.component';
 import { AppHeaderComponent } from './components/AppHeader/app-header.component';
 import { AppFooterComponent } from './components/AppFooter/app-footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactDetailsPageComponent } from './pages/ContactDetailsPage/contact-details-page.component';
 import { StatisticPageComponent } from './pages/StatisticPage/statistic-page.component';
-import { GoogleChartsModule } from 'angular-google-charts';
 import { ContactFilterComponent } from './components/ContactFilter/contact-filter.component';
 import { ContactEditPageComponent } from './pages/ContactEditPage/contact-edit-page.component';
+import { LoginSignupPageComponent } from './pages/LoginSignupPage/login-signup-page.component';
+import { TransferFundComponent } from './components/TransferFund/transfer-fund.component';
+import { MovesListComponent } from './components/MovesList/moves-list.component';
+import { MarketPriceChartComponent } from './components/MarketPriceChart/market-price-chart.component';
+import { TransactionChartComponent } from './components/TransactionChart/transaction-chart.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +34,18 @@ import { ContactEditPageComponent } from './pages/ContactEditPage/contact-edit-p
     StatisticPageComponent,
     ContactFilterComponent,
     ContactEditPageComponent,
+    LoginSignupPageComponent,
+    TransferFundComponent,
+    MovesListComponent,
+    MarketPriceChartComponent,
+    TransactionChartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    GoogleChartsModule.forRoot({}),
   ],
   providers: [],
   bootstrap: [AppComponent],

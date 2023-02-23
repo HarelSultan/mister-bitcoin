@@ -17,4 +17,8 @@ export class ContactPageComponent implements OnInit {
     this.contactService.loadContacts();
     this.contacts$ = this.contactService.contacts$;
   }
+
+  onRemoveContact(contactId: string) {
+    this.contactService.deleteContact(contactId);
+  }
 }

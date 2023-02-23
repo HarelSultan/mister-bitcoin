@@ -1,0 +1,10 @@
+:host {
+  display: grid;
+  align-items: center;
+}
+#transactionChart {
+  display: block;
+  height: 400px;
+  width: 400px;
+  align-self: self-end;
+}

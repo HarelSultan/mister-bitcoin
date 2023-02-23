@@ -1,0 +1,18 @@
+<section class="moves-list">
+  <div class="move-preview" *ngFor="let move of moves">
+    <span class="transaction-date">{{
+      move.at | date : "MMM dd, yyyy HH:mm"
+    }}</span>
+    <span class="curr-balance" *ngIf="rate$ | async as rate"
+      >$ {{ move.balance / rate | number : "0.2-2" }}
+    </span>
+    <h3 class="transaction-to">To {{ move.to | titlecase }}</h3>
+
+    <span class="transaction-amount"
+      >BTC {{ move.amount | number : "0.2-2" }}</span
+    >
+    <div class="transaction-status">
+      Status: <span class="{{ move.status }}">{{ move.status }}</span>
+    </div>
+  </div>
+</section>

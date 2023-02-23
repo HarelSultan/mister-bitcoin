@@ -9,13 +9,18 @@
     background: $bg-clr2;
     padding: 2rem;
     border-radius: 0.5rem;
+    position: relative;
   }
   .contact-actions-container {
     display: flex;
     justify-content: space-between;
   }
-  .btn-details,
-  .btn-edit {
-    height: unset;
+  .btn-delete {
+    padding: 1rem;
+    background: $danger-clr;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: min-content;
   }
 }

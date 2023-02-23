@@ -1,0 +1,55 @@
+<section class="login-signup-page">
+  <h2>{{ isSignup ? "Sign up" : "Login" }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onLoginSignup()">
+    <label *ngIf="isSignup" for="name">Full name</label>
+    <input
+      *ngIf="isSignup"
+      placeholder="Enter your full name"
+      type="text"
+      id="name"
+    />
+
+    <label for="username">Username</label>
+    <div class="input-wrapper">
+      <input
+        id="username"
+        formControlName="username"
+        placeholder="Enter your username"
+        type="text"
+      />
+      <span
+        *ngIf="
+          !formControl['username'].valid && formControl['username'].touched
+        "
+        >Username must be between 4 and 20 characters long.</span
+      >
+    </div>
+
+    <label for="password">Password</label>
+    <div class="input-wrapper">
+      <input
+        formControlName="password"
+        type="password"
+        placeholder="Enter your password"
+      />
+      <span
+        *ngIf="
+          !formControl['password'].valid && formControl['password'].touched
+        "
+        >Password must be at least 4 characters long.</span
+      >
+    </div>
+
+    <button class="btn btn-submit" type="submit" [disabled]="form.invalid">
+      {{ isSignup ? "Sign up" : "Login" }}
+    </button>
+  </form>
+
+  <div class="toggle-signup-container">
+    <span>{{ isSignup ? "Already a member?" : "Don't have an account?" }}</span>
+    <button (click)="onToggleLoginSignup()">
+      {{ isSignup ? "Login" : "Sign up" }}
+    </button>
+  </div>
+</section>

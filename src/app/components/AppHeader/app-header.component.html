@@ -5,6 +5,16 @@
       <span>Mr.Bitcoin</span>
     </div>
 
+    <div *ngIf="user" class="user-container">
+      <div class="user-img-container">
+        <img src="../../../assets/img/contact.png" alt="" />
+      </div>
+      <div class="user-details">
+        <span> {{ user.name }}</span>
+        <button (click)="onLogout()" class="btn btn-logout">Logout</button>
+      </div>
+    </div>
+
     <ul class="links clean-list">
       <li class="link">
         <a

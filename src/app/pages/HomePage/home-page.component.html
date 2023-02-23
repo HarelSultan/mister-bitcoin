@@ -1,11 +1,29 @@
 <section *ngIf="user" class="home-page">
-  <span>Welcome back {{ user.name }}</span>
-  <div class="user-balance">
-    <img src="../../../assets/img/coins.png" alt="" />
-    <span>Balance: {{ user.coins }}</span>
-  </div>
-  <div class="rate">
-    <img src="../../../assets/img/bitcoin.png" alt="" />
-    <span>BTC: {{ rate }}</span>
+  <h1>Welcome back {{ user.name }}</h1>
+  <h3>Recent transactions and market movement</h3>
+  <div class="user-profile">
+    <div class="user-wrapper" *ngIf="rate$ | async as rate">
+      <div class="user-balance">
+        Current balance
+        <span class="btc-balance"
+          >BTC: ₿ {{ user.coins | number : "0.2-4" }}</span
+        >
+        <span class="usd-balance"
+          >USD: $ {{ user.coins / rate | number : "1.2-3" }}</span
+        >
+      </div>
+      <div class="rate">
+        <span>Current BTC rate:</span>
+        <span class="btc-rate"> $ {{ 1 / rate | number : "1.2-3" }}</span>
+      </div>
+      <div class="user-moves">
+        <h4>Recent transactions</h4>
+        <moves-list [moves]="user.moves" [rate$]="rate$"></moves-list>
+      </div>
+    </div>
+    <transaction-chart
+      *ngIf="transactionData$ | async as transactionData"
+      [transactionData]="transactionData"
+    ></transaction-chart>
   </div>
 </section>

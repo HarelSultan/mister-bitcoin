@@ -1,11 +1,24 @@
-<section class="statistic-page">
-  <google-chart
-    [title]="marketPriceChart.title"
-    [type]="marketPriceChart.type"
-    [data]="marketPriceData"
-    [columns]="marketPriceChart.columns"
-    [options]="marketPriceChart.options"
-    [width]="marketPriceChart.width"
-    [height]="marketPriceChart.height"
-  ></google-chart>
+<section class="statistic-page" *ngIf="rate$ | async as rate">
+  <div class="user-balance">
+    <div class="btc-balance">
+      <span>BTC Balance</span>
+      ₿ {{ user.coins | number : "1.3-5" }}
+    </div>
+    <div class="usd-balance">
+      <span>USD Balance</span> $ {{ user.coins / rate | number : "1.2-3" }}
+    </div>
+  </div>
+  <market-price-chart
+    *ngIf="marketPriceData$ | async as marketPriceData"
+    [marketPriceData]="marketPriceData"
+  ></market-price-chart>
+
+  <transaction-chart
+    *ngIf="transactionData$ | async as transactionData"
+    [transactionData]="transactionData"
+  ></transaction-chart>
+  <div class="user-moves">
+    <h4>Recent transactions</h4>
+    <moves-list [moves]="user.moves" [rate$]="rate$"></moves-list>
+  </div>
 </section>

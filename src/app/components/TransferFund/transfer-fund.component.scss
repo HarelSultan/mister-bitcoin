@@ -1,0 +1,16 @@
+@import "../../../assets/styles/setup/variables";
+.transfer-fund {
+  margin-block-end: 1.5rem;
+  input {
+    padding: 6px 12px;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: $brand-clr-bold 1px solid;
+    outline: none;
+  }
+  .btn-submit {
+    border-radius: 0.5rem;
+    padding: 10px;
+    justify-content: center;
+  }
+}

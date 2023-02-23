@@ -1,0 +1,79 @@
+@import "../../../assets/styles/setup/variables";
+.login-signup-page {
+  border-radius: 8px;
+  background-color: rgb(253, 247, 247);
+  box-shadow: rgba(0, 0, 0, 0.21) 0px 2px 8px 0px;
+  max-width: 480px;
+  padding-block-start: 24px;
+  margin: 2rem auto;
+  font-family: "Livvic", sans-serif;
+  color: #353f52;
+  font-weight: bold;
+
+  display: grid;
+
+  h2 {
+    text-align: center;
+  }
+
+  form {
+    display: grid;
+    justify-content: center;
+  }
+
+  .input-wrapper {
+    position: relative;
+    span {
+      font-size: 0.85rem;
+      color: $danger-clr;
+      font-weight: 500;
+      position: absolute;
+      inset: 30px 0px -20px;
+      padding-top: 6px;
+      line-height: 1;
+    }
+  }
+
+  input {
+    margin-block-end: 1.75rem;
+    padding: 6px 12px;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: $brand-clr-bold 1px solid;
+    outline: none;
+
+    &.ng-invalid.ng-touched {
+      border: 1px solid $danger-clr;
+    }
+  }
+  .btn-submit {
+    width: 100%;
+    justify-content: center;
+    padding: 0.55rem 1rem;
+    border-radius: 0.35rem;
+    margin-block-start: 0.5rem;
+    &[disabled] {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+  .toggle-signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block-start: 1rem;
+    padding-block: 1.5rem;
+    border-top: 1px solid rgb(225, 228, 235);
+    span {
+      color: darken($text-clr2, 5%);
+    }
+
+    button {
+      border: none;
+      outline: none;
+      background-color: inherit;
+      color: $brand-clr;
+      font-size: 1.15rem;
+    }
+  }
+}

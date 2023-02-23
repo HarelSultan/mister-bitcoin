@@ -8,4 +8,11 @@ import { Contact } from 'src/app/models/contact.model';
 })
 export class ContactListComponent {
   @Input() contacts!: Contact[] | null;
+  @Output() removeContact = new EventEmitter();
+
+  onRemoveContact(contactId: string | undefined) {
+    console.log(contactId);
+
+    this.removeContact.emit(contactId);
+  }
 }

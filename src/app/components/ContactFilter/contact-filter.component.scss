@@ -1,0 +1,23 @@
+@import "../../../assets/styles/setup/variables";
+.contact-filter {
+  background: $bg-clr3;
+  width: max-content;
+  padding: 2rem;
+
+  h2 {
+    padding-bottom: 1rem;
+  }
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    input {
+      padding: 6px 12px;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      border: $brand-clr-bold 1px solid;
+      outline: none;
+    }
+  }
+}

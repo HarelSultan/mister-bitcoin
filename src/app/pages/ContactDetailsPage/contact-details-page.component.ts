@@ -1,15 +1,9 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { lastValueFrom, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Contact } from 'src/app/models/contact.model';
-import { ContactService } from 'src/app/services/contact/contact.service';
+import { MoveModel } from 'src/app/models/move.model';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'contact-details-page',
@@ -18,18 +12,28 @@ import { ContactService } from 'src/app/services/contact/contact.service';
 })
 export class ContactDetailsPageComponent implements OnInit, OnDestroy {
   constructor(
-    private contactService: ContactService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {}
 
-  contact: Contact | undefined;
+  contact!: Contact;
+  lastMoves!: MoveModel[];
   subscription!: Subscription;
 
   async ngOnInit(): Promise<void> {
     this.subscription = this.route.data.subscribe(({ contact }) => {
-      this.contact = contact || this.contactService.getEmptyContact();
+      this.contact = contact;
+      this.lastMoves = this.userService.getMoves(this.contact._id);
     });
+  }
+
+  async onTransferCoins(amount: number) {
+    try {
+      this.userService.updateUserCoins(this.contact, amount);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   onBack() {

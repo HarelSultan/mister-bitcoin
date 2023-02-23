@@ -1,0 +1,9 @@
+<section class="transfer-fund">
+  <h3>Transfer coins to {{ contact.name }}</h3>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <input type="number" ngModel required name="coins" placeholder="0" />
+    <button type="submit" [disabled]="form['invalid']" class="btn btn-submit">
+      Send
+    </button>
+  </form>
+</section>

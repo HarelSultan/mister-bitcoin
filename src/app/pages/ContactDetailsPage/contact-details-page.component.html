@@ -1,4 +1,10 @@
 <section class="contact-details" *ngIf="contact">
-  <contact-preview [contact]="contact"></contact-preview>
   <button (click)="onBack()" class="btn btn-back">Back</button>
+
+  <contact-preview [contact]="contact"></contact-preview>
+  <transfer-fund
+    [contact]="contact"
+    (transferCoins)="onTransferCoins($event)"
+  ></transfer-fund>
+  <moves-list [moves]="lastMoves"></moves-list>
 </section>

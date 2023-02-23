@@ -1,5 +1,8 @@
 <section class="contact-list">
   <article *ngFor="let contact of contacts" class="contact-container">
+    <button (click)="onRemoveContact(contact._id)" class="btn btn-delete">
+      X
+    </button>
     <contact-preview [contact]="contact"></contact-preview>
     <div class="contact-actions-container">
       <button

@@ -1,5 +1,8 @@
-<app-header></app-header>
-<section class="main-layout">
+<section class="main-layout app {{ isMenuDisplayed ? 'menu-open' : '' }}">
+  <app-header
+    (onToggleMenuDisplay)="(onToggleMenuDisplay)"
+    class="full"
+  ></app-header>
   <router-outlet></router-outlet>
 </section>
 <app-footer></app-footer>

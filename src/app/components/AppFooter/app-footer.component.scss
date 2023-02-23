@@ -1,7 +1,8 @@
 @import "../../../assets/styles/setup/variables";
 
-:host {
-  position: fixed;
+.footer {
+  position: sticky;
+  margin-top: 3rem;
   bottom: 0;
   background: $bg-clr2;
   color: $text-clr1;
